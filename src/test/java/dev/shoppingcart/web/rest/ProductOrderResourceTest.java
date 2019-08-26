@@ -7,7 +7,8 @@ import dev.shoppingcart.service.ProductOrderService;
 import dev.shoppingcart.service.ProductService;
 import dev.shoppingcart.service.dto.ProductOrderDTO;
 import dev.shoppingcart.service.mapper.ProductOrderMapper;
-import dev.shoppingcart.ShoppingCartApplication;
+import dev.shoppingcart.web.rest.ProductOrderRequest;
+import dev.shoppingcart.web.rest.ProductOrderResource;
 
 import org.junit.Before;
 import org.junit.Test;
@@ -28,7 +29,6 @@ import javax.persistence.EntityManager;
 import java.time.Instant;
 import java.time.temporal.ChronoUnit;
 import java.util.List;
-import java.util.Optional;
 
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.hamcrest.Matchers.hasItem;
@@ -40,8 +40,8 @@ import dev.shoppingcart.domain.enumeration.OrderStatus;
  * Integration tests for the {@Link ProductOrderResource} REST controller.
  */
 @RunWith(SpringRunner.class)
-@SpringBootTest(classes = ShoppingCartApplication.class)
-public class ProductOrderResourceIT {
+@SpringBootTest
+public class ProductOrderResourceTest {
 
     private static final Instant DEFAULT_ORDER_DATE = Instant.ofEpochMilli(0L);
     private static final Instant UPDATED_ORDER_DATE = Instant.now().truncatedTo(ChronoUnit.MILLIS);
@@ -104,7 +104,7 @@ public class ProductOrderResourceIT {
         // Add required entity
         Product product;
         if (TestUtil.findAll(em, Product.class).isEmpty()) {
-            product = ProductResourceIT.createEntity(em);
+            product = ProductResourceTest.createEntity(em);
             em.persist(product);
             em.flush();
         } else {
@@ -127,7 +127,7 @@ public class ProductOrderResourceIT {
         // Add required entity
         Product product;
         if (TestUtil.findAll(em, Product.class).isEmpty()) {
-            product = ProductResourceIT.createUpdatedEntity(em);
+            product = ProductResourceTest.createUpdatedEntity(em);
             em.persist(product);
             em.flush();
         } else {

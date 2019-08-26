@@ -1,11 +1,11 @@
 package dev.shoppingcart.web.rest;
 
-import dev.shoppingcart.ShoppingCartApplication;
 import dev.shoppingcart.domain.Product;
 import dev.shoppingcart.repository.ProductRepository;
 import dev.shoppingcart.service.ProductService;
 import dev.shoppingcart.service.dto.ProductDTO;
 import dev.shoppingcart.service.mapper.ProductMapper;
+import dev.shoppingcart.web.rest.ProductResource;
 
 import org.junit.Before;
 import org.junit.Test;
@@ -22,9 +22,6 @@ import org.springframework.test.web.servlet.setup.MockMvcBuilders;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.validation.Validator;
 
-import com.fasterxml.jackson.databind.ObjectMapper;
-import com.fasterxml.jackson.datatype.jsr310.JavaTimeModule;
-
 import javax.persistence.EntityManager;
 import java.time.Instant;
 import java.time.temporal.ChronoUnit;
@@ -39,8 +36,8 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
  * Integration tests for the {@Link ProductResource} REST controller.
  */
 @RunWith(SpringRunner.class)
-@SpringBootTest(classes = ShoppingCartApplication.class)
-public class ProductResourceIT {
+@SpringBootTest
+public class ProductResourceTest {
 
     private static final String DEFAULT_NAME = "AAAAAAAAAA";
     private static final String UPDATED_NAME = "BBBBBBBBBB";
