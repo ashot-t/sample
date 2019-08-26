@@ -1,0 +1,8 @@
+id;name;description;type;price;count_in_stock;created_date;last_modified_date
+1;LG G6;LG G6 mobile phone;Smartphone;199;2;2019-08-24T23:31:21;2019-08-25T08:42:39
+2;Samsung S8;Samsung S8 mobile phone;Smartphone;349;3;2019-08-25T05:20:22;2019-08-24T16:52:43
+3;IPhone 8;Iphone 8 mobile phone;Smartphone;699;1;2019-08-25T12:46:19;2019-08-24T13:27:44
+4;IPhone X;IPhone X mobile phone;Smartphone;999;4;2019-08-24T18:38:13;2019-08-24T22:36:16
+5;Samsung S10;Samsung S10 mobile phone;Smartphone;699;2;2019-08-24T21:05:43;2019-08-25T05:20:34
+6;Dell Latitude 6330;Dell Latitude laptop;Laptop;350;1;2019-08-25T00:36:06;2019-08-24T20:05:29
+7;Macbook Air;Apple Macbook Air;Laptop;1100;2;2019-08-25T09:48:12;2019-08-25T07:09:51

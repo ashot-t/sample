@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.6.xsd
+                        http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd">
+
+    <property name="autoIncrement" value="true"/>
+
+    <!--
+        Added the entity Product.
+    -->
+    <changeSet id="1" author="shoppingcart">
+        <createTable tableName="product">
+            <column name="id" type="bigint" autoIncrement="${autoIncrement}">
+                <constraints primaryKey="true" nullable="false"/>
+            </column>
+            <column name="name" type="varchar(255)">
+                <constraints nullable="false" />
+            </column>
+
+            <column name="description" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+
+            <column name="type" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+
+            <column name="price" type="double">
+                <constraints nullable="true" />
+            </column>
+
+            <column name="count_in_stock" type="integer">
+                <constraints nullable="true" />
+            </column>
+
+            <column name="created_date" type="datetime">
+                <constraints nullable="true" />
+            </column>
+
+            <column name="last_modified_date" type="datetime">
+                <constraints nullable="true" />
+            </column>
+
+        </createTable>
+
+        <dropDefaultValue tableName="product" columnName="created_date" columnDataType="datetime"/>
+        <dropDefaultValue tableName="product" columnName="last_modified_date" columnDataType="datetime"/>
+    </changeSet>
+
+    <!--
+        Load sample data.
+    -->
+    <changeSet id="1-data" author="shoppingcart">
+        <loadData
+                  file="db/changelog/product.csv"
+                  separator=";"
+                  tableName="product">
+            <column name="id" type="numeric"/>
+            <column name="name" type="string"/>
+            <column name="description" type="string"/>
+            <column name="type" type="string"/>
+            <column name="price" type="numeric"/>
+            <column name="count_in_stock" type="numeric"/>
+            <column name="created_date" type="datetime"/>
+            <column name="last_modified_date" type="datetime"/>
+        </loadData>
+    </changeSet>
+
+    <changeSet id="1-relations" author="shoppingcart">
+
+    </changeSet>
+
+</databaseChangeLog>
